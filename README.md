@@ -9,3 +9,7 @@ The code is made of two functions:
 readDataBase: Reads the files and writes them to a pandas database.
 
 plotBands: Plots data to a plotly html file.
+
+plotEnergies: Plots data of Orbital Character vs Energy
+
+plotBandsWeights: Plots data of Orbital Character vs Bands
