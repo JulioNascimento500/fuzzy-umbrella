@@ -138,3 +138,17 @@ def plotBands(DataDict,Atoms,SpinCh,ListOrbitals,fileName='./file.html',marker_M
 
 
     fig.write_html(fileName) 
+
+def plotEnergies(DataDict,Atoms,SpinCh,ListOrbitals,fileName='./fileEnergy.html',opacity=0.5):
+
+    pd.options.plotting.backend = "plotly"
+    fig = DataDict.loc[Atoms,SpinCh,:].plot(barmode = 'overlay',kind="hist",nbins=1000,x='Energy',y=ListOrbitals,opacity=opacity)
+    fig.write_html(fileName)
+
+def plotBandsWeight(DataDict,Atoms,SpinCh,ListOrbitals,fileName='./fileBands.html',marker_Multiplier=10):
+
+    pd.options.plotting.backend = "plotly"
+    df_sum = DataDict.loc[Atoms,SpinCh,:].groupby(level=[2]).sum()
+    fig = df_sum.plot(y = ListOrbitals)
+    fig.write_html(fileName)
+
